@@ -3,6 +3,11 @@
 Console.Clear();
 Console.Write("Введите любое положительное целое число: ");
 int number = Convert.ToInt32(Console.ReadLine());
+if (number <= 0)
+{
+    Console.Write("Неверно! Введите число больше нуля!: ");
+    number = Convert.ToInt32(Console.ReadLine());
+}
 int count = - number;
 while (count < number)
 {
