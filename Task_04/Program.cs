@@ -15,7 +15,7 @@ else if (num_2 >= num_1 && num_2 >= num_3)
 {
     Console.WriteLine($"Максимальное число из чисел {num_1}, {num_2}, {num_3} будет {num_2}");
 }
-else if (num_3 > num_1 && num_3 > num_2)
+else
 {
     Console.WriteLine($"Максимальное число из чисел {num_1}, {num_2}, {num_3} будет {num_3}");
 }
