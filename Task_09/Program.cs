@@ -19,6 +19,9 @@ int MaxDigit(int randNum)
     int num1 = randNum / 10;
     int num2 = randNum % 10;
     int Max = num1 > num2 ? num1 : num2;
+    if (num1 ==num2) return 0;
     return Max;
 }
-Console.WriteLine($"Наибольшая цифра случайного числа {rand}: {MaxDigit(rand)}");
+string result = MaxDigit(rand) > 0 ? MaxDigit(rand).ToString() : "цифры одинаковые!";
+
+Console.WriteLine($"Наибольшая цифра случайного числа {rand}: {result}");
