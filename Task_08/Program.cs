@@ -18,3 +18,18 @@ for (int i = 2; i <= num; i+=2)
 {
     Console.Write($"{i} ");
 }
+
+Console.WriteLine();
+
+Console.WriteLine("РЕШЕНИЕ № 3");
+Console.Write("Введите любое натуральное число: ");
+num = Convert.ToInt32(Console.ReadLine());
+count = 1;
+while (count <= num)
+{
+    if (count % 2 == 0)
+    {
+        Console.Write($"{count} ");
+    }
+    count++;
+}
