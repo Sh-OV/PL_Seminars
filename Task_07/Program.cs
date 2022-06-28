@@ -3,11 +3,10 @@
 Console.Clear();
 Console.Write("Введите трехзначное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-if (num >= 1000)
+if (num >= 1000 || num < 100)
 {
     Console.Write("Вы ввели неверное число, пожалуйста введите трехзначное число: ");
     num = Convert.ToInt32(Console.ReadLine());
 }
-int rem = num % 100;
-rem %= 10;
+int rem = num % 10;
 Console.WriteLine($"Последняя цифра числа {num} будет {rem}");
