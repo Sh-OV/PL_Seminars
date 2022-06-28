@@ -1,7 +1,7 @@
 ﻿// Задача 13: Напишите программу, которая выводит третью цифру заданного числа 
 // или сообщает, что третьей цифры нет.
 Console.Clear();
-Console.Write("Введите любое целое число: ");
+Console.Write("Введите любое целое число до 1 000 000 000: ");
  int number = Convert.ToInt32(Console.ReadLine());
  int numdig = 3;      // номер цифры
  
@@ -15,6 +15,7 @@ Console.Write("Введите любое целое число: ");
     }
     return i;
  }
+ 
 
  int NDigit(int count, int digit, int num)
  {
@@ -34,7 +35,7 @@ Console.Write("Введите любое целое число: ");
     return dig;
  }
  int answer = NDigit(NumDigits(number), numdig, number);
- string result = answer > 0 ? 
+ string result = answer > -1 ? 
         $"В заданном числе {numdig} цифра равна {answer}" : 
         $"В заданном числе {numdig} цифры НЕТ";
  Console.WriteLine(result);
