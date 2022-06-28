@@ -28,12 +28,13 @@ Console.Write("Введите любое целое число: ");
             count *= 10;
             i--;
         }
-        dig = num / count % 10;
+       dig = num / count % 10;
     }
     else dig = -1;
     return dig;
  }
- string result = NDigit(NumDigits(number), numdig, number) > 0 ? 
-        $"В заданном числе {numdig} цифра равна {NDigit(NumDigits(number), numdig, number)}" : 
+ int answer = NDigit(NumDigits(number), numdig, number);
+ string result = answer > 0 ? 
+        $"В заданном числе {numdig} цифра равна {answer}" : 
         $"В заданном числе {numdig} цифры НЕТ";
  Console.WriteLine(result);
