@@ -9,11 +9,12 @@ int y = Convert.ToInt32(Console.ReadLine());
 
 string Quarter(int xc, int yc)
 {
-    
     if (xc > 0 && yc > 0) return "Точка находится в первой четверти плоскости";
     if (xc < 0 && yc > 0) return "Точка находится во второй четверти плоскости";
     if (xc < 0 && yc < 0) return "Точка находится в третьей четверти плоскости";
     if (xc < 0 && yc < 0) return "Точка находится в четвертой четверти плоскости";
-    else return "Введены неверные координаты";
+    else return "Введены некорректные координаты";
 }
-Console.Write(Quarter(x, y));
+
+string result = Quarter(x, y);
+Console.Write(result);
