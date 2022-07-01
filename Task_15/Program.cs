@@ -8,7 +8,6 @@ if (numday > 7 || numday < 1)
     Console.Write("Такого дня недели нет! Введите, пожалуйста, день недели числом от 1 до 7: ");
     numday = Convert.ToInt32(Console.ReadLine());
 }
-int i = 0;
 string [] arrday = {"NULL","Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
 if (numday == 6 || numday == 7)
 {
