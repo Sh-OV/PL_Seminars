@@ -18,28 +18,23 @@ string Quarter(int xc, int yc)
 }
 
 string result = Quarter(x, y);
-Console.Write(result);
+Console.WriteLine(result);
 
-// Console.WriteLine("Решение № 2");
-// Console.Write("Введите координату по оси Х: ");
-// int x1 = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите координату по оси Y: ");
-// int y1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
 
-// switch (x1)
-// {
-//     case x1 > 0 :
-//     switch (y1)
-//     {
-//         case y1 > 0 : "Точка находится в первой четверти плоскости"; break;
-//         case y1 < 0 : "Точка находится в четвертой четверти плоскости"; break;
-//     }
-//     case x1 < 0 :
-//     switch (y1)
-//     {
-//         case y1 > 0 : "Точка находится во второй четверти плоскости"; break;
-//         case y1 < 0 : "Точка находится в третьей четверти плоскости"; break;
-//     }
-//     default: "Введены некорректные координаты"; break;
-// }
+Console.WriteLine("Решение № 2");
+Console.Write("Введите координату по оси Х: ");
+int x1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите координату по оси Y: ");
+int y1 = Convert.ToInt32(Console.ReadLine());
+
+switch ((x1, y1))
+{
+    case (> 0, > 0): Console.Write("Точка находится в первой четверти плоскости"); break;
+    case (< 0, > 0): Console.Write("Точка находится во второй четверти плоскости"); break;
+    case (< 0, < 0): Console.Write("Точка находится в третьей четверти плоскости"); break;
+    case (> 0, < 0): Console.Write("Точка находится в четвертой четверти плоскости"); break;
+    
+    default: Console.Write("Введены некорректные координаты"); break;
+}
 
