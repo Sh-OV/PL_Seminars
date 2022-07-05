@@ -9,8 +9,10 @@ int Sum (int num)
     for (int i = 1; i <= num; i++)
     {
         sum += i;
+        if (i < num) Console.Write($"{i} + ");
+        else Console.Write($"{i} = ");
     }
     return sum;
 }
 int result = Sum(number);
-Console.WriteLine($"Сумма чисел от 1 до {number} равна {result}");
+Console.WriteLine(/*Сумма чисел от 1 до {number} равна*/ $"{result}");
