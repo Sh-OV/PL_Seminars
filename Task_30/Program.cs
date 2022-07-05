@@ -23,7 +23,7 @@ int[] Arr(int size)
 {
     int [] array = new int[size];
     var rnd = new Random();
-for (int i = 0; i < size-1; i++)
+for (int i = 0; i < size; i++)
 {
     array[i] = rnd.Next(0, 2); 
 }
