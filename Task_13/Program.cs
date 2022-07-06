@@ -1,9 +1,11 @@
 ﻿// Задача 13: Напишите программу, которая выводит третью цифру заданного числа 
 // или сообщает, что третьей цифры нет.
 Console.Clear();
-Console.Write("Введите любое целое число до 1 000 000 000: ");
+Console.WriteLine("Решение №1: ");
+Console.Write("Введите любое целое число: ");
  int number = Convert.ToInt32(Console.ReadLine());
- int numdig = 3;      // номер цифры
+ Console.Write("Введите номер цифры в числе, которую хотите узнать: ");
+ int numdig = Convert.ToInt32(Console.ReadLine());
  
  int NumDigits(int num)
  {
@@ -39,3 +41,26 @@ Console.Write("Введите любое целое число до 1 000 000 00
         $"В заданном числе {numdig} цифра равна {answer}" : 
         $"В заданном числе {numdig} цифры НЕТ";
  Console.WriteLine(result);
+
+ Console.WriteLine();
+ Console.WriteLine("Решение №2: ");
+
+ int Digit(int num, int dig)
+ {
+  if (num < Math.Pow(10,(numdig-1))) num = -1; 
+ else  
+ { 
+    while (num >= Math.Pow(10,(numdig)))
+    {
+        num /= 10;
+    }
+    num %= 10;
+ }
+    return num;
+ }
+ answer = Digit(number, numdig);
+ result = answer > -1 ? 
+        $"В заданном числе {number} {numdig}-я цифра равна {answer}" : 
+        $"В заданном числе {number} {numdig}-ей(ой) цифры НЕТ";
+ Console.WriteLine(result);
+ 
