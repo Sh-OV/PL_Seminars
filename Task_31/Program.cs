@@ -46,8 +46,13 @@ void PrintArr (int[] res)
 int[] resArray =  Array(digit, neg, pos);
 PrintArr (resArray);
 int[] sumNegPosElem = GetSumNegPosElem(resArray);
-Console.WriteLine();
-Console.WriteLine($"Сумма положительных чисел массива {sumNegPosElem[1]}");
-Console.WriteLine($"Сумма отрицательных чисел массива {sumNegPosElem[0]}");
 
+void PrintGetSumNegPosElem (int[] array)
+{
+    Console.WriteLine();
+    Console.WriteLine($"Сумма положительных чисел массива {array[1]}");
+    Console.WriteLine($"Сумма отрицательных чисел массива {array[0]}");
+}
+PrintGetSumNegPosElem(sumNegPosElem);
 
+ 
