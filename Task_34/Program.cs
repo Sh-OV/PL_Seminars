@@ -19,7 +19,6 @@ int[] arr = Array(digit);
 
 int EvanNumArr(int [] array)
 {
-    int[] arr = new int[array.Length];
     int count = 0;
     for (int i = 0; i < array.Length; i++)
     {
