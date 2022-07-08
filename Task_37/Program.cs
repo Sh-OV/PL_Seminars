@@ -26,7 +26,7 @@ int[] MultiplePirsArr(int[] array1)
 {
     int Length = array1.Length;
     int len = 0;
-    if (array1.Length % 2 == 0) int len = array1.Length / 2;
+    if (array1.Length % 2 == 0) len = array1.Length / 2;
     else len = array1.Length / 2 +1;
     int[] array2 = new int[len];
     for (int i = 0; i < len; i++)
