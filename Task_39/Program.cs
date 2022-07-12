@@ -48,5 +48,28 @@ void PrintArr (int[] res)
         else Console.WriteLine($"{res[i]}]");
     }
 }
-// PrintArr(arr);
 PrintArr(revarr);
+
+Console.WriteLine();
+Console.WriteLine("Решение №2 (с созданием нового массива для реверса): ");
+Console.WriteLine();
+
+
+int[] RevArray(int[] array)
+{
+    int length = array.Length;
+    int[] revarray = new int[length];
+    for (int i = 0; i < length / 2; i++)
+    {
+        revarray[i] = array[length-1-i];
+        revarray[length-1-i] = array[i];
+    }
+    if(length % 2 != 0) revarray[length / 2] = array[length / 2];
+ //   Console.WriteLine($"array[len] = {array[len]}, array[len + 1] = {array[len + 1]}");
+    return revarray;
+}
+int[] reversarr = RevArray(arr);
+
+PrintArr(arr);
+PrintArr(reversarr);
+
