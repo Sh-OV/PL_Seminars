@@ -73,3 +73,25 @@ int[] reversarr = RevArray(arr);
 PrintArr(arr);
 PrintArr(reversarr);
 
+Console.WriteLine();
+Console.WriteLine("Решение №3 (решение с преподавателем): ");
+Console.WriteLine();
+
+void Revers (int[] array)
+{
+    int size = array.Length;
+    int index1 = 0;
+    int index2 = size - 1;
+    while (index1 < index2)
+    {
+        int obj = array[index1];
+        array[index1] = array[index2];
+        array[index2] = obj;
+
+        index1 ++;
+        index2 --;
+    }
+}
+PrintArr(arr);
+Revers(arr);
+PrintArr(arr);
