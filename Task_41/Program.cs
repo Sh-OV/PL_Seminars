@@ -41,11 +41,11 @@ int CountPosArr(int[] array)
     }
     return count;
 }
-int num = CountPosArr(userArr);
+int num = 103;////= CountPosArr(userArr);
 
 void PrintArr (int[] res)
 {
-    for (int i = 0; i < res.Length; i++)
+    for (int i = 0; i < res.Length; i++) 
     {
         if (i == 0) Console.Write($"[");
         if (i < res.Length-1) Console.Write($"{res[i]}, ");
@@ -57,12 +57,11 @@ string EndWord(int digit)
 {
     string end = String.Empty;
     
-    if (digit % 10 == 1 && digit / 10 <= 10) end = "положительное значение";
-    else if ((digit % 10 == 2 || digit % 10 == 3 || digit % 10 == 4) && digit / 10 <= 10) end = "положительных значения";
-    else if ((digit / 10 >= 10 && digit / 10 <= 20) || digit % 10 == 0 || 
-              digit % 10 == 5 || digit % 10 == 6 || digit % 10 == 7 ||
-              digit % 10 == 8 || digit % 10 == 9) end = "положительных значений";
-
+    if ((digit % 100 == 2 || digit % 100 == 3 || digit % 100 == 4) || (digit > 1 && digit < 5)) end = "положительных значения";
+    else if ((digit % 100 >= 10 && digit % 100 <= 20)|| (digit >= 10 && digit <= 20) || digit % 10 == 0 || 
+     digit % 10 != 1) end = "положительных значений";
+    else if (digit % 10 == 1 || digit == 1 ||  digit % 100 == 1) end = "положительное значение"; 
+ 
     return end;  
 }
 string res = EndWord(num);
