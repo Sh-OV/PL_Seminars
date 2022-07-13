@@ -5,12 +5,6 @@ Console.Clear();
 int[] UserArray()
 {
     // Можно так:
-    Console.Write("Введите размер массива, который Вы будете вводить: ");
-    int len = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите указанное Вами количество любых чисел: ");
-    int[] arrNum = new int[len];
-    int num = 0;
-    // Можно так:
     // Console.WriteLine("Введите несколько чисел (не более 100) любого значения, ");
     // Console.WriteLine("после, чтобы завершить ввод чисел, напишите четыре единицы (1111): ");
     // int[] arrNum = new int[100];
@@ -22,6 +16,12 @@ int[] UserArray()
     //     num = Convert.ToInt32(Console.ReadLine());   
     //     i++;   
     // }
+    // Можно так:
+    Console.Write("Введите размер массива, который Вы будете вводить: ");
+    int len = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите указанное Вами количество любых чисел: ");
+    int[] arrNum = new int[len];
+    int num = 0;
     for (int i = 0; i < len; i++)
     {
          num = Convert.ToInt32(Console.ReadLine());
@@ -41,7 +41,7 @@ int CountPosArr(int[] array)
     }
     return count;
 }
-int num = 103;////= CountPosArr(userArr);
+int num = CountPosArr(userArr);
 
 void PrintArr (int[] res)
 {
