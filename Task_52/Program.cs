@@ -27,24 +27,28 @@ int[,] RandTwoMatrix (int row, int col, int min, int max)
 
 int[,] randMatrix = RandTwoMatrix (oneLevelArray, twoLevelArray, minElements, maxElements);
 
-int[] ColumnSumMatrix (int[,] matrix, int col)
+double[] ColumnArithmeticMeanMatrix (int[,] matrix, int row, int col)
 {
-    int[] sumarr  = new int [col];
-    int sum = 0;
+    double[] colarr  = new double [col];
+    //int sum = 0;
          for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            for (int k = 0; k < sumarr.Length; k++)
+            for (int k = 0; k < colarr.Length; k++)
              {
-            for (int j = 0; j < matrix.GetLength(1); j++)
-            {
-                if (j == k) sumarr[k] += matrix[i,j];
-            }
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                        if (j == k) colarr[k] += matrix[i,j];
+                }
              }
         }
-    return sumarr;
+        for (int i = 0; i < colarr.Length; i++)
+        {
+                colarr[i] = Math.Round(colarr[i] / row, 1);
+        }
+    return colarr;
 }
 
-int[] sumcol = ColumnSumMatrix (randMatrix, twoLevelArray);
+double[] arithmeticMeanCol = ColumnArithmeticMeanMatrix (randMatrix, oneLevelArray, twoLevelArray);
 
 void PrintTwoMatrix(int[,] matrix)
 {
@@ -73,22 +77,20 @@ void PrintTwoMatrix(int[,] matrix)
     }
 }
 
-void PrintArrayColumn (int[] array)
+void PrintArrayColumn (double[] array)
 {
     string digit = String.Empty;
     for (int i = 0; i < array.Length; i++)
     {
-    if(array[i] >= 0 && array[i] < 10) digit = $"      {array[i]}";
+    if(array[i] >= 0 && array[i] < 10) digit = $"    {array[i]}";
     else if((array[i] > 10 && array[i] < 100) || 
-            (array[i] > -10 && array[i] < 0)) digit = $"     {array[i]}";
+            (array[i] > -10 && array[i] < 0)) digit = $"   {array[i]}";
     else if((array[i] > 100 && array[i] < 1000) ||
-            (array[i] > -100 && array[i] <= -10)) digit = $"    {array[i]}";
+            (array[i] > -100 && array[i] <= -10)) digit = $"  {array[i]}";
     else if((array[i] > 1000 && array[i] < 10000) ||
-            (array[i] > -1000 && array[i] <= -100)) digit = $"   {array[i]}";
+            (array[i] > -1000 && array[i] <= -100)) digit = $" {array[i]}";
     else if((array[i] > 10000 && array[i] < 1000000) || 
-            (array[i] > -10000 && array[i] < -1000 )) digit = $"  {array[i]}";
-    else if((array[i] > 100000 && array[i] < 10000000) || 
-            (array[i] > -100000 && array[i] < -10000 )) digit = $" {array[i]}";
+            (array[i] > -10000 && array[i] < -1000 )) digit = $"{array[i]}";
  
     if (i == 0) Console.Write("СУММА:  { ");
     if (i < array.Length-1)  Console.Write($"{digit} | ");
@@ -101,7 +103,7 @@ Console.WriteLine();
 Console.WriteLine("                                                 ДВУМЕРНЫЙ МАССИВ:");
 PrintTwoMatrix(randMatrix);
 Console.WriteLine();
-PrintArrayColumn(sumcol);
+PrintArrayColumn(arithmeticMeanCol);
 Console.WriteLine();
 
 
