@@ -12,7 +12,7 @@ Console.Write("Введите максимальное значение масс
 int maxElements = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
 
-int[,] RandTwoMatrix(int row, int col, int min, int max)
+int[,] RandTwoMatrix(int row, int col, int min, int max) // метод создания двумерного массива рандомно
 {
     int[,] matrix = new int[row, col];
     Random rnd = new Random();
@@ -27,7 +27,7 @@ int[,] RandTwoMatrix(int row, int col, int min, int max)
 }
 int[,] randMatrix = RandTwoMatrix(oneLevelArray, twoLevelArray, minElements, maxElements);
 
-void PrintTwoMatrix(int[,] matrix)
+void PrintTwoMatrix(int[,] matrix)      // метод вывода двумерного массива на печать
 {
     string digit = String.Empty;
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -53,43 +53,86 @@ void PrintTwoMatrix(int[,] matrix)
         Console.WriteLine();
     }
 }
-
 PrintTwoMatrix(randMatrix);
 Console.WriteLine();
 
-int RepeatingElements(int[,] matrix, int row, int col)
+void SelectionSort (int[] array)    // метод сортировки одномерного массива от меньшего к большему
 {
-    int replay = matrix[row, col];
-    int count = 0;
-     for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < array.Length-1; i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        int minPosition = i;  
+
+        for (int j = i + 1; j < array.Length; j++)
         {
-           if   (matrix[i,j] == replay) count++;
+            if(array[j] < array[minPosition]) minPosition = j;
         }
+
+
+        int temporary = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temporary;
     }
-    return count;
 }
 
-
-int NumberDuplicateElements (int [,] matrix, int row, int col)
+int[] TransformationMatrixIntoArraySort (int[,] matrix)            // метод сортировки массива от меньшего к большему
 {
+    int[] sortarray = new int[matrix.GetLength(0)*matrix.GetLength(1)];
     int count = 0;
+    int minelem = sortarray[0];
+    int maxelem = sortarray[0];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-        if (RepeatingElements(matrix, i, j) > 1) count ++;
+            sortarray[count] = matrix[i,j];
+            count++;
         }
     }
-    return count;
+    SelectionSort (sortarray);
+    return sortarray;
 }
+int[] transfMatrixIntoArraySort = TransformationMatrixIntoArraySort (randMatrix);
 
-int[] CounterIdenticalElements (int [,] matrix, int countElem)
+void PrintArr (int[] res)
 {
-    int[] array = new int[countElem];
+    for (int i = 0; i < res.Length; i++)
+    {
+        if (i == 0) Console.Write($"[{res[i]}, ");
+        else if (i > 0 && i < res.Length-1) Console.Write($"{res[i]}, ");
+        else Console.WriteLine($"{res[i]}]");
+    }
+}
+PrintArr(transfMatrixIntoArraySort);
+Console.WriteLine();
+//-------------------------------------------------------------------------------
+string EndWord(int digit)
+{
+    string end = String.Empty;
     
+    if ((digit % 100 == 2 || digit % 100 == 3 || digit % 100 == 4) || (digit > 1 && digit < 5)) end = "раза";
+    else if ((digit % 100 >= 10 && digit % 100 <= 20)|| (digit >= 10 && digit <= 20) || digit % 10 == 0 || 
+     digit % 10 != 1) end = "раз";
+    else if (digit % 10 == 1 || digit == 1 ||  digit % 100 == 1) end = "раз"; 
+ 
+    return end;  
 }
 
+void FrequencyDictionaryElementsArray (int[] array) // метод Частотный словарь повторения элементов
+{
+    int count = 0;
+    int number = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] == number) count++;
+        else
+        {
+            Console.WriteLine($"{number} встречается {count} {EndWord(count)}");
+            number = array[i];
+            count = 0;
+        }
+    }
+}
 
-//frequency dictionary - частотный словарь
+FrequencyDictionaryElementsArray (transfMatrixIntoArraySort);
+Console.WriteLine();
+
