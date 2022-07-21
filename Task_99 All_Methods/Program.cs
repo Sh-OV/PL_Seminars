@@ -156,7 +156,7 @@ int [] RandArray(int size, int min, int max)
     return array;
 }
 
-int[] rndArray = Array(15, 1, 9);
+int[] rndArray = RandArray(15, 1, 9);
 
 //-------------------------------------------------------------------------------
 // Метод сортировки одномерного массива от меньшего к большему ??? не доделан
@@ -270,3 +270,49 @@ PrintArr(userArr);
 Console.WriteLine($"имеется  {num}  {res}");
 
 //-------------------------------------------------------------------------------
+// Метод сортировки выбора массива от меньшего к большему
+//-------------------------------------------------------------------------------
+void SelectionSort (int[] array)
+{
+    for (int i = 0; i < array.Length-1; i++)
+    {
+        int minPosition = i;  
+
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if(array[j] < array[minPosition]) minPosition = j;
+        }
+
+
+        int temporary = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temporary;
+    }
+}
+
+PrintArray(arr);
+SelectionSort(arr);
+PrintArray(arr);
+
+//-------------------------------------------------------------------------------
+// Метод сортировки выбора массива от большему к меньшему
+//-------------------------------------------------------------------------------
+void SelectionSortMax (int[] array)
+{
+    for (int i = 0; i < array.Length-1; i++)
+    {
+        int maxPosition = i;  
+
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if(array[j] > array[maxPosition]) maxPosition = j;
+        }
+
+
+        int temporary = array[i];
+        array[i] = array[maxPosition];
+        array[maxPosition] = temporary;
+    }
+}
+SelectionSortMax(arr);
+PrintArray(arr);
