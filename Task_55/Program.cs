@@ -57,12 +57,6 @@ void PrintTwoMatrix(int[,] matrix)
 PrintTwoMatrix(randMatrix);
 Console.WriteLine();
 
-// bool СheckingСonditions (int[,] matrix)
-// {
-//     if (length0 <= length1) return true;
-//     else return false;
-// }
-
 int[,] ReplacingRowsWithColumnsMatrix(int[,] matrix)
 {
 
