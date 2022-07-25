@@ -13,55 +13,62 @@ Console.Write("Введите количество столбцов двумер
 int twoLevelArray = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите минимальное значение массива: ");
 int minElements = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите максимальное значение массива: ");
-int maxElements = Convert.ToInt32(Console.ReadLine());
+
 Console.WriteLine();
 
-int[,] RandTwoMatrix(int row, int col, int min, int max) // метод создания двумерного массива рандомно
+int[,] RandTwoMatrix(int row, int col, int min) // метод создания двумерного массива рандомно
 {
     int[,] matrix = new int[row, col];
-    Random rnd = new Random();
+    int number = min;
+    int max = row * col;
     int len0 = row;
     int len1 = col;
-    int end = 0;
-    
-    if (len0 > len1) end = len1;
-    else end = len0;
-    while (end > 0)
-    {
-        int m = 0;
+    int longside = 0;
+    int end = min + max;
+    int m = 0;
     int count = 0;
     int k = len1 - 1;
-        for (int j = count; j < len1; j++)
+    if (len0 > len1) longside = len1;
+    else longside = len0;
+    while (longside > 0)
+    {
         {
-            matrix[m, j] = rnd.Next(min, max + 1);
-            Console.WriteLine($"Первая стрелка matrix[m, j] m = {m}, j = {j}");
+            for (int j = count; j < len1; j++)
+            {
+                matrix[m, j] = number++;
+                k = j;
+                if (number == end) return matrix;
+                Console.WriteLine($"Первая  стрелка matrix[m, j] m = {m}, j = {j} == {matrix[m, j]}");
+            }
+            for (int i = count + 1; i < len0; i++)
+            {
+                matrix[i, k] = number++;
+                m = i;
+                if (number == end) return matrix;
+                Console.WriteLine($"Вторая  стрелка  matrix[i, k] i = {i}, k = {k} == {matrix[i, k]}");
+            }
+            for (int j = len1 - 2; j >= count; j--)
+            {
+                matrix[m, j] = number++;
+                k = j;
+                if (number == end) return matrix;
+                Console.WriteLine($"Третья  стрелка  matrix[m, j]   m = {m}, j = {j} == {matrix[m, j]}");
+            }
+            for (int i = len0 - 2; i > count; i--)
+            {
+                matrix[i, k] = number++;
+                m = i;
+                if (number == end) return matrix;
+                Console.WriteLine($"Четвертая  стрелка matrix[i, k] i = {i}, k = {k} == {matrix[i, k]}");
+            }
         }
-        for (int i = count + 1; i < len0; i++)
-        {
-            m++;
-            matrix[i, k] = rnd.Next(min, max + 1);
-            Console.WriteLine($"Вторая стрелка matrix[i, k] i = {i}, k = {k}; m++ = {m} (i д/б = m)");
-        }
-        for (int j = len1 - 2; j >= 0; j--)
-        {
-            k--;
-            matrix[m, j] = rnd.Next(min, max + 1);
-            Console.WriteLine($"Третья стрелка matrix[m, j] m = {m}, j = {j}; k-- = {k} (j д/б = k)");
-        }
-        for (int i = len0 - 2; i > 0; i--)
-        {
-           m--;
-           matrix[i, k] = rnd.Next(min, max + 1);
-           Console.WriteLine($"Четвертая стрелка matrix[i, k] i = {i}, k = {k}");
-        }
-        len0 --;
-        len1 --;
+        len0--;
+        len1--;
         count++;
     }
     return matrix;
 }
-int[,] randMatrix = RandTwoMatrix(oneLevelArray, twoLevelArray, minElements, maxElements);
+int[,] randMatrix = RandTwoMatrix(oneLevelArray, twoLevelArray, minElements);
 
 void PrintTwoMatrix(int[,] matrix)      // метод вывода двумерного массива на печать
 {
