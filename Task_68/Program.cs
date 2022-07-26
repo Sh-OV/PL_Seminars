@@ -40,8 +40,23 @@ ulong ackerman = AckermanFunction (Convert.ToUInt64(firstNonNegativeNumber), Con
 Console.WriteLine($"Ответ:  {ackerman}");
 Console.WriteLine();
 
+//       ВЫДАЕТ ОШИБКУ:
+// ! [rejected]        main -> main (fetch first)
+
+// Используйте эти команды для решения этой проблемы:
+
 // git fetch origin master
 // git merge origin master
 // git add .
 // git commit -m 'your commit message'
 // git push origin master
+
+/*       ВЫДАЕТ ОШИБКУ:
+   ! [rejected]        main -> main (non-fast-forward)
+
+   Используйте эти команды для решения этой проблемы :
+
+  git pull
+  потом уже можно делать
+  git push
+  */
