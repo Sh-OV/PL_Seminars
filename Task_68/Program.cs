@@ -8,20 +8,24 @@ Console.Write("Введите неотрицательное число m (от 
 int firstNonNegativeNumber = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите неотрицательное число n (от 0 до 10): ");
 int secondNonNegativeNumber = Convert.ToInt32(Console.ReadLine());
-while (firstNonNegativeNumber < 0 || firstNonNegativeNumber > 3)
+
+while (firstNonNegativeNumber < 0 || firstNonNegativeNumber > 3)    // проверка
 {
     Console.WriteLine("Вы ввели неверные данные. Число m НЕ должно быть отрицательным и НЕ должно быть больше 3!");
     Console.Write("Введите неотрицательное число m (от 0 до 3): ");
     firstNonNegativeNumber = Convert.ToInt32(Console.ReadLine());
 }
-while (secondNonNegativeNumber < 0 || secondNonNegativeNumber > 11)
+
+while (secondNonNegativeNumber < 0 || secondNonNegativeNumber > 11)    // проверка
 {
     Console.WriteLine("Вы ввели неверные данные. Число m НЕ должно быть отрицательным и НЕ должно быть больше 10!");
     Console.Write("Введите неотрицательное число n (от 0 до 10): ");
     secondNonNegativeNumber = Convert.ToInt32(Console.ReadLine());
 }
+
 Console.WriteLine();
-ulong AckermanFunction(ulong m, ulong n)
+
+ulong AckermanFunction(ulong m, ulong n)    // метод вычисления функции Аккермана
 {
     ulong result = 0;
   if (m == 0) result = n+1;
