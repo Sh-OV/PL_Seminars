@@ -7,7 +7,7 @@
 10 09 08 07
 */
 Console.Clear();
-Console.Write("Введите коли ство рядов двумерного массива: ");
+Console.Write("Введите количество рядов двумерного массива: ");
 int oneLevelArray = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов двумерного массива: ");
 int twoLevelArray = Convert.ToInt32(Console.ReadLine());
@@ -16,7 +16,7 @@ int minElements = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine();
 
-int[,] RandTwoMatrix(int row, int col, int min) // метод создания двумерного массива рандомно
+int[,] SpiralTwoMatrix(int row, int col, int min) // метод создания двумерного массива, заполняется спирально
 {
     int[,] matrix = new int[row, col];
     int number = min;
@@ -38,28 +38,28 @@ int[,] RandTwoMatrix(int row, int col, int min) // метод создания �
                 matrix[m, j] = number++;
                 k = j;
                 if (number == end) return matrix;
-                Console.WriteLine($"Первая  стрелка matrix[m, j] m = {m}, j = {j} == {matrix[m, j]}");
+//                Console.WriteLine($"Первая  стрелка matrix[m, j] m = {m}, j = {j} == {matrix[m, j]}");
             }
             for (int i = count + 1; i < len0; i++)
             {
                 matrix[i, k] = number++;
                 m = i;
                 if (number == end) return matrix;
-                Console.WriteLine($"Вторая  стрелка  matrix[i, k] i = {i}, k = {k} == {matrix[i, k]}");
+//                Console.WriteLine($"Вторая  стрелка  matrix[i, k] i = {i}, k = {k} == {matrix[i, k]}");
             }
             for (int j = len1 - 2; j >= count; j--)
             {
                 matrix[m, j] = number++;
                 k = j;
                 if (number == end) return matrix;
-                Console.WriteLine($"Третья  стрелка  matrix[m, j]   m = {m}, j = {j} == {matrix[m, j]}");
+//                Console.WriteLine($"Третья  стрелка  matrix[m, j]   m = {m}, j = {j} == {matrix[m, j]}");
             }
             for (int i = len0 - 2; i > count; i--)
             {
                 matrix[i, k] = number++;
                 m = i;
                 if (number == end) return matrix;
-                Console.WriteLine($"Четвертая  стрелка matrix[i, k] i = {i}, k = {k} == {matrix[i, k]}");
+//                Console.WriteLine($"Четвертая  стрелка matrix[i, k] i = {i}, k = {k} == {matrix[i, k]}");
             }
         }
         len0--;
@@ -68,7 +68,7 @@ int[,] RandTwoMatrix(int row, int col, int min) // метод создания �
     }
     return matrix;
 }
-int[,] randMatrix = RandTwoMatrix(oneLevelArray, twoLevelArray, minElements);
+int[,] spiralMatrix = SpiralTwoMatrix(oneLevelArray, twoLevelArray, minElements);
 
 void PrintTwoMatrix(int[,] matrix)      // метод вывода двумерного массива на печать
 {
@@ -78,15 +78,15 @@ void PrintTwoMatrix(int[,] matrix)      // метод вывода двумер�
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             if (matrix[i, j] >= 0 && matrix[i, j] < 10) digit = $"      {matrix[i, j]}";
-            else if ((matrix[i, j] > 10 && matrix[i, j] < 100) ||
+            else if ((matrix[i, j] >= 10 && matrix[i, j] < 100) ||
                     (matrix[i, j] > -10 && matrix[i, j] < 0)) digit = $"     {matrix[i, j]}";
-            else if ((matrix[i, j] > 100 && matrix[i, j] < 1000) ||
+            else if ((matrix[i, j] >= 100 && matrix[i, j] < 1000) ||
                     (matrix[i, j] > -100 && matrix[i, j] <= -10)) digit = $"    {matrix[i, j]}";
-            else if ((matrix[i, j] > 1000 && matrix[i, j] < 10000) ||
+            else if ((matrix[i, j] >= 1000 && matrix[i, j] < 10000) ||
                     (matrix[i, j] > -1000 && matrix[i, j] <= -100)) digit = $"   {matrix[i, j]}";
-            else if ((matrix[i, j] > 10000 && matrix[i, j] < 1000000) ||
+            else if ((matrix[i, j] >= 10000 && matrix[i, j] < 1000000) ||
                     (matrix[i, j] > -10000 && matrix[i, j] < -1000)) digit = $"  {matrix[i, j]}";
-            else if ((matrix[i, j] > 100000 && matrix[i, j] < 10000000) ||
+            else if ((matrix[i, j] >= 100000 && matrix[i, j] < 10000000) ||
                     (matrix[i, j] > -100000 && matrix[i, j] < -10000)) digit = $" {matrix[i, j]}";
 
             if (j == 0) Console.Write("[");
@@ -96,5 +96,5 @@ void PrintTwoMatrix(int[,] matrix)      // метод вывода двумер�
         Console.WriteLine();
     }
 }
-PrintTwoMatrix(randMatrix);
+PrintTwoMatrix(spiralMatrix);
 Console.WriteLine();
