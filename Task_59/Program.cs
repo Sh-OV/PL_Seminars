@@ -27,6 +27,22 @@ int[,] RandTwoMatrix(int row, int col, int min, int max) // метод созд�
 }
 int[,] randMatrix = RandTwoMatrix(oneLevelArray, twoLevelArray, minElements, maxElements);
 
+int[,] TwoMatrix(int row, int col) // метод создания двумерного массива на убывание
+{
+    int[,] matrix = new int[row, col];
+    int maxnumb = row * col;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = maxnumb;
+            maxnumb--;
+        }
+    }
+    return matrix;
+}
+int[,] twoMatrix = TwoMatrix(5, 7);
+
 void PrintTwoMatrix(int[,] matrix)      // метод вывода двумерного массива на печать
 {
     string digit = String.Empty;
@@ -55,3 +71,55 @@ void PrintTwoMatrix(int[,] matrix)      // метод вывода двумер�
 }
 PrintTwoMatrix(randMatrix);
 Console.WriteLine();
+
+int[] FindingMinElement(int[,] matrix) // метод поиска наменьшего элемнента двумерного массива
+{
+    int minElement = matrix[0, 0];
+    int m = 0;
+    int k = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i, j] < minElement)
+            {
+                minElement = matrix[i, j];
+                m = i;
+                k = j;
+            }
+        }
+    }
+    Console.WriteLine($"minElement = matrix[{m},{k}] = {minElement}");
+    Console.WriteLine();
+    return new int[] { m, k };
+}
+int[] arrayMinElement = FindingMinElement(randMatrix);
+
+int[,] NewTwoMatrix(int[,] matrix, int[] array) // метод изменения двумерного массива с удалением строки и столбца
+{
+    int[,] matrixNew = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
+    int m = 0;
+    int k = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        if (m < matrixNew.GetLength(0))
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                if (k < matrixNew.GetLength(1))
+                {
+                    matrixNew[m, k] = matrix[i, j];
+                    if (j != array[1]) k++;
+                }
+            }
+            if (i != array[0]) m++;
+            k = 0;
+        }
+    }
+    return matrixNew;
+}
+int[,] randMatrixNew = NewTwoMatrix(randMatrix, arrayMinElement);
+PrintTwoMatrix(randMatrixNew);
+Console.WriteLine();
+
+
