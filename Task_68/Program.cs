@@ -39,3 +39,9 @@ ulong AckermanFunction(ulong m, ulong n)    // метод вычисления �
 ulong ackerman = AckermanFunction (Convert.ToUInt64(firstNonNegativeNumber), Convert.ToUInt64(secondNonNegativeNumber));
 Console.WriteLine($"Ответ:  {ackerman}");
 Console.WriteLine();
+
+// git fetch origin master
+// git merge origin master
+// git add .
+// git commit -m 'your commit message'
+// git push origin master
