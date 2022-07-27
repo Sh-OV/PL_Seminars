@@ -1,6 +1,6 @@
 ﻿// Задача № 61. Вывести первые N строк треугольника Паскаля. Сделать вывод в виде равнобедренного треугольника.
 Console.Clear();
-Console.Write("Для построения треугольника Паскаля введите количество строк треугольника (не больше 15): ");
+Console.Write("Для построения треугольника Паскаля введите количество строк треугольника (не больше 17): ");
 int linesPaskal = Convert.ToInt32(Console.ReadLine());
 
 void СonstructionTrianglePaskal(int row)
@@ -9,7 +9,7 @@ void СonstructionTrianglePaskal(int row)
     int help1 = 0;
     int help2 = 0;
     int count = 0;
-    int x = 60, y = 1;
+    int x = 70, y = 1;
     for (int i = 0; i < row; i++)
     {
         if (i != 0) { x-= 4; y++; }
