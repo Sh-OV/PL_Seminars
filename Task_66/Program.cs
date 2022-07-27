@@ -5,7 +5,7 @@
 // M = 4; N = 8. -> 30
 
 Console.Clear();
-Console.WriteLine("Для для нахождения суммы введите два натуральных числа M и N (N должно быть больше M)");
+Console.WriteLine("Для нахождения суммы введите два натуральных числа M и N (N должно быть больше M)");
 Console.Write("Введите натуральное число M: ");
 int firstNaturalNumber = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите натуральное число N: ");
