@@ -16,15 +16,15 @@ while (naturalNumber < 1)
 
 Console.WriteLine();
 
-string SequenceViaRecursion (int min, int max)
+string SequenceViaRecursion(int min, int max)
 {
-    if (max >= min) 
+    if (max >= min)
     {
         if (max == min) return $"{max}";
-        return $"{max}" + ", " + SequenceViaRecursion (min, max-1);
+        return $"{max}, " + SequenceViaRecursion(min, max - 1);
     }
     else return String.Empty;
 }
-string result = SequenceViaRecursion (1, naturalNumber);
+string result = SequenceViaRecursion(1, naturalNumber);
 Console.WriteLine($"N = {naturalNumber} -> ({result})");
 Console.WriteLine();
