@@ -29,7 +29,7 @@ int SumNumbersViaRecursion(int min, int max)
 {
     if (min <= max)
     {
-        return  min + SumNumbersViaRecursion(min+1, max);
+        return min + SumNumbersViaRecursion(min + 1, max);
     }
     else return 0;
 }
