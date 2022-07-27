@@ -24,13 +24,11 @@ Console.WriteLine();
 
 int ExponentiationNumber(int a, int b)
 {
-    int i = 1;
-   if (b >= i)
+   if (b > 0)
    {
-        i++;
-        return a * i + ExponentiationNumber(a, b-1);
+        return (a * ExponentiationNumber(a, b-1));
    }
-   else return 0;
+   else return 1;
 }
 int result = ExponentiationNumber(firstNaturalNumber, secondNaturalNumber);
 Console.WriteLine($"A = {firstNaturalNumber}; B = {secondNaturalNumber} -> {result} ({firstNaturalNumber}^{secondNaturalNumber})");
