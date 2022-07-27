@@ -43,15 +43,15 @@ void PrintTwoMatrix(int[,] matrix)      // метод вывода двумер�
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             if (matrix[i, j] >= 0 && matrix[i, j] < 10) digit = $"      {matrix[i, j]}";
-            else if ((matrix[i, j] > 10 && matrix[i, j] < 100) ||
+            else if ((matrix[i, j] >= 10 && matrix[i, j] < 100) ||
                     (matrix[i, j] > -10 && matrix[i, j] < 0)) digit = $"     {matrix[i, j]}";
-            else if ((matrix[i, j] > 100 && matrix[i, j] < 1000) ||
+            else if ((matrix[i, j] >= 100 && matrix[i, j] < 1000) ||
                     (matrix[i, j] > -100 && matrix[i, j] <= -10)) digit = $"    {matrix[i, j]}";
-            else if ((matrix[i, j] > 1000 && matrix[i, j] < 10000) ||
+            else if ((matrix[i, j] >= 1000 && matrix[i, j] < 10000) ||
                     (matrix[i, j] > -1000 && matrix[i, j] <= -100)) digit = $"   {matrix[i, j]}";
-            else if ((matrix[i, j] > 10000 && matrix[i, j] < 1000000) ||
+            else if ((matrix[i, j] >= 10000 && matrix[i, j] < 1000000) ||
                     (matrix[i, j] > -10000 && matrix[i, j] < -1000)) digit = $"  {matrix[i, j]}";
-            else if ((matrix[i, j] > 100000 && matrix[i, j] < 10000000) ||
+            else if ((matrix[i, j] >= 100000 && matrix[i, j] < 10000000) ||
                     (matrix[i, j] > -100000 && matrix[i, j] < -10000)) digit = $" {matrix[i, j]}";
 
             if (j == 0) Console.Write("[");
@@ -64,7 +64,7 @@ void PrintTwoMatrix(int[,] matrix)      // метод вывода двумер�
 PrintTwoMatrix(randMatrix);
 Console.WriteLine();
 
-int[,] SortingRowMatrix (int[,] matrix)
+int[,] SortingRowMatrix (int[,] matrix) // метод сортировки двумерного массива по строкам (по убыванию)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {

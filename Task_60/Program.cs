@@ -71,7 +71,7 @@ void PrintThreeMatrix(int[, ,] matrix)      // метод вывода двум�
         {
            for (int k = 0; k < matrix.GetLength(2); k++)
            {
-            if ((matrix[i, j, k] > 10 && matrix[i, j, k] < 100)) digit = $"  {matrix[i, j, k]}({i},{j},{k})";
+            if ((matrix[i, j, k] >= 10 && matrix[i, j, k] < 100)) digit = $"  {matrix[i, j, k]}({i},{j},{k})";
              else if ((matrix[i, j, k] > -100 && matrix[i, j, k] <= -10)) digit = $"{matrix[i, j, k]}({i},{j},{k})";
  
              if (k == 0) Console.Write("[");

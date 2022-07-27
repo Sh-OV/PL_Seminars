@@ -35,15 +35,15 @@ void PrintTwoMatrix(int[,] matrix)      // метод вывода двумер�
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             if (matrix[i, j] >= 0 && matrix[i, j] < 10) digit = $"      {matrix[i, j]}";
-            else if ((matrix[i, j] > 10 && matrix[i, j] < 100) ||
+            else if ((matrix[i, j] >= 10 && matrix[i, j] < 100) ||
                     (matrix[i, j] > -10 && matrix[i, j] < 0)) digit = $"     {matrix[i, j]}";
-            else if ((matrix[i, j] > 100 && matrix[i, j] < 1000) ||
+            else if ((matrix[i, j] >= 100 && matrix[i, j] < 1000) ||
                     (matrix[i, j] > -100 && matrix[i, j] <= -10)) digit = $"    {matrix[i, j]}";
-            else if ((matrix[i, j] > 1000 && matrix[i, j] < 10000) ||
+            else if ((matrix[i, j] >= 1000 && matrix[i, j] < 10000) ||
                     (matrix[i, j] > -1000 && matrix[i, j] <= -100)) digit = $"   {matrix[i, j]}";
-            else if ((matrix[i, j] > 10000 && matrix[i, j] < 1000000) ||
+            else if ((matrix[i, j] >= 10000 && matrix[i, j] < 1000000) ||
                     (matrix[i, j] > -10000 && matrix[i, j] < -1000)) digit = $"  {matrix[i, j]}";
-            else if ((matrix[i, j] > 100000 && matrix[i, j] < 10000000) ||
+            else if ((matrix[i, j] >= 100000 && matrix[i, j] < 10000000) ||
                     (matrix[i, j] > -100000 && matrix[i, j] < -10000)) digit = $" {matrix[i, j]}";
 
             if (j == 0) Console.Write("[");
@@ -66,15 +66,13 @@ void SelectionSort (int[] array)    // метод сортировки одно�
         {
             if(array[j] < array[minPosition]) minPosition = j;
         }
-
-
         int temporary = array[i];
         array[i] = array[minPosition];
         array[minPosition] = temporary;
     }
 }
 
-int[] TransformationMatrixIntoArraySort (int[,] matrix)            // метод сортировки массива от меньшего к большему
+int[] TransformationMatrixIntoArraySort (int[,] matrix)            // метод превращения двумерного массива в одномерный и его сортировка
 {
     int[] sortarray = new int[matrix.GetLength(0)*matrix.GetLength(1)];
     int count = 0;
@@ -93,7 +91,7 @@ int[] TransformationMatrixIntoArraySort (int[,] matrix)            // метод
 }
 int[] transfMatrixIntoArraySort = TransformationMatrixIntoArraySort (randMatrix);
 
-void PrintArr (int[] res)
+void PrintArr (int[] res)  // метод вывода одномерного массива на печать
 {
     for (int i = 0; i < res.Length; i++)
     {
@@ -104,8 +102,8 @@ void PrintArr (int[] res)
 }
 PrintArr(transfMatrixIntoArraySort);
 Console.WriteLine();
-//-------------------------------------------------------------------------------
-string EndWord(int digit)
+
+string EndWord(int digit)  // метод преобразования окончания слова в зависимости от цифры
 {
     string end = String.Empty;
     

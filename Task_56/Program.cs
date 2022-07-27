@@ -41,15 +41,15 @@ void PrintTwoMatrix(int[,] matrix)      // метод вывода двумер�
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             if (matrix[i, j] >= 0 && matrix[i, j] < 10) digit = $"      {matrix[i, j]}";
-            else if ((matrix[i, j] > 10 && matrix[i, j] < 100) ||
+            else if ((matrix[i, j] >= 10 && matrix[i, j] < 100) ||
                     (matrix[i, j] > -10 && matrix[i, j] < 0)) digit = $"     {matrix[i, j]}";
-            else if ((matrix[i, j] > 100 && matrix[i, j] < 1000) ||
+            else if ((matrix[i, j] >= 100 && matrix[i, j] < 1000) ||
                     (matrix[i, j] > -100 && matrix[i, j] <= -10)) digit = $"    {matrix[i, j]}";
-            else if ((matrix[i, j] > 1000 && matrix[i, j] < 10000) ||
+            else if ((matrix[i, j] >= 1000 && matrix[i, j] < 10000) ||
                     (matrix[i, j] > -1000 && matrix[i, j] <= -100)) digit = $"   {matrix[i, j]}";
-            else if ((matrix[i, j] > 10000 && matrix[i, j] < 1000000) ||
+            else if ((matrix[i, j] >= 10000 && matrix[i, j] < 1000000) ||
                     (matrix[i, j] > -10000 && matrix[i, j] < -1000)) digit = $"  {matrix[i, j]}";
-            else if ((matrix[i, j] > 100000 && matrix[i, j] < 10000000) ||
+            else if ((matrix[i, j] >= 100000 && matrix[i, j] < 10000000) ||
                     (matrix[i, j] > -100000 && matrix[i, j] < -10000)) digit = $" {matrix[i, j]}";
 
             if (j == 0) Console.Write("[");
@@ -91,7 +91,7 @@ void PrintArr (int[] res)  // метод вывода одномерного м�
 PrintArr(rowsumarr);
 Console.WriteLine();
 
-int FindSmallSumRowArray(int[] array)
+int FindSmallSumRowArray(int[] array)   // метод поиска наименьшаго элемента в одномерном массиве
 {
     int minelem = array[0];
     int count = 1;
