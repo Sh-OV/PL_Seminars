@@ -1,15 +1,7 @@
 ﻿// Задача № 61. Вывести первые N строк треугольника Паскаля. Сделать вывод в виде равнобедренного треугольника.
 Console.Clear();
-Console.Write("Для построения треугольника Паскаля введите количество строк треугольника: ");
+Console.Write("Для построения треугольника Паскаля введите количество строк треугольника (не больше 15): ");
 int linesPaskal = Convert.ToInt32(Console.ReadLine());
-
-// int x0 = 60, y0 = 1;
-// Console.SetCursorPosition(x0, y0);
-// Console.WriteLine("1");
-// Console.SetCursorPosition(x0-1, y0+1);
-// Console.WriteLine("1 1");
-// Console.SetCursorPosition(x0-2, y0+2);
-// Console.WriteLine("1 2 1");
 
 void СonstructionTrianglePaskal(int row)
 {
@@ -20,7 +12,7 @@ void СonstructionTrianglePaskal(int row)
     int x = 60, y = 1;
     for (int i = 0; i < row; i++)
     {
-        if (i != 0) { x --; y ++;}
+        if (i != 0) { x-= 4; y++; }
         Console.SetCursorPosition(x, y);
         for (int j = 0; j <= count; j++)
         {
@@ -34,9 +26,22 @@ void СonstructionTrianglePaskal(int row)
                 array[j] = 1;
             }
             help2 = help1;
-            Console.Write($"{array[j]} ");
+            Print(array[j]);
         }
         count++;
     }
 }
 СonstructionTrianglePaskal(linesPaskal);
+Console.WriteLine();
+
+void Print(int arg)
+{
+    string digit = String.Empty;
+    if (arg >= 0 && arg < 10) digit = $"    {arg}   ";
+    else if (arg >= 10 && arg < 100) digit = $"   {arg}   ";
+    else if (arg >= 100 && arg < 1000) digit = $"  {arg}   ";
+    else if (arg >= 1000 && arg < 10000) digit = $"  {arg}  ";
+     else if (arg >= 10000 && arg < 100000) digit = $" {arg}  ";
+     else if (arg >= 100000 && arg < 1000000) digit = $" {arg} ";
+    Console.Write(digit);
+}
